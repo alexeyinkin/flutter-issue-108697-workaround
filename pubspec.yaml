@@ -1,0 +1,14 @@
+name: flutter_issue_108697_workaround
+description: A workaround for Flutter Issue 108697 that prevents state recovery on page refresh. Gets the state directly from the browser History API.
+repository: https://github.com/alexeyinkin/flutter-issue-108697-workaround
+version: 0.1.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: '>=2.0.0'
+
+dependencies:
+  flutter: {sdk: flutter}
+
+dev_dependencies:
+  total_lints: ^2.17.3
