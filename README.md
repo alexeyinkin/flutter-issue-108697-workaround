@@ -1,6 +1,13 @@
 A workaround for [Flutter Issue 108697](https://github.com/flutter/flutter/issues/108697)
 that prevents state recovery on page refresh. Gets the state directly from the browser History API.
 
+## Example
+
+This app preserves the text on page refresh:
+Runnable project: https://github.com/alexeyinkin/flutter-issue-108697-workaround/blob/main/example/main.dart
+
+![Screen](https://raw.githubusercontent.com/alexeyinkin/flutter-issue-108697-workaround/main/example/example.gif)
+
 ## Usage
 
 Add this code to your `RouteInformationParser`:
