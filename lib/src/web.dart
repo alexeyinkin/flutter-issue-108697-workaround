@@ -10,13 +10,21 @@ RouteInformation apply108697Workaround(RouteInformation routeInformation) {
     return routeInformation;
   }
 
-  final stateJson = js.context.callMethod(
-    'eval',
-    ['JSON.stringify(history.state.state)'],
-  );
+  try {
+    final stateJson = js.context.callMethod(
+      'eval',
+      ['JSON.stringify(history.state.state)'],
+    );
 
-  return RouteInformation(
-    location: routeInformation.location,
-    state: jsonDecode(stateJson),
-  );
+    return RouteInformation(
+      location: routeInformation.location,
+      state: jsonDecode(stateJson),
+    );
+
+    // ignore: avoid_catches_without_on_clauses
+  } catch (ex) {
+    // In Gnome Web, and probably other WebKit browsers, we get
+    // NoSuchMethodError: method not found: 'state' on null
+    return routeInformation;
+  }
 }
